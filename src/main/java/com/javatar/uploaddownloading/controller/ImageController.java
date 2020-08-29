@@ -1,8 +1,8 @@
 package com.javatar.uploaddownloading.controller;
 
+import com.javatar.uploaddownloading.domain.Image;
 import com.javatar.uploaddownloading.services.ImageServic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,16 +16,15 @@ public class ImageController {
 
     @Autowired
     private ImageServic servic;
-    @Value("${image.path}")
-    private String path;
 
     @PostMapping
-    ResponseEntity saveImage(@RequestParam("file") MultipartFile file){
-        return ResponseEntity.ok(servic.saveImage(file));
+    ResponseEntity<Image> saveImage(@RequestParam("file") MultipartFile file,
+                                    @RequestParam("description") String description) {
+        return ResponseEntity.ok(servic.saveImage(file, description));
     }
 
     @GetMapping
-    ResponseEntity<List<String>> findAllImageUrl(){
+    ResponseEntity<List<Image>> findAllImageUrl() {
         return ResponseEntity.ok(servic.findAllImageUrl());
     }
 

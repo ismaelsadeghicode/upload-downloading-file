@@ -3,10 +3,8 @@ package com.javatar.uploaddownloading.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "IMAGE")
@@ -28,4 +26,6 @@ public class Image {
     private String path;
     @Column(name = "description")
     private String description;
+    @Column(name = "url")
+    private String url;
 }

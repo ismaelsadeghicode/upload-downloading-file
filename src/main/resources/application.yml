@@ -1,0 +1,16 @@
+server:
+  port: 7070
+
+image:
+  path: /Users/ismael/Desktop/pooya/
+  url: http://localhost:7070/image/download/
+
+# DB
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/imageSave
+  jpa:
+    hibernate:
+      ddl-auto: create
